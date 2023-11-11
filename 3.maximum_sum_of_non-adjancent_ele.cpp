@@ -44,13 +44,11 @@ int maximumNonAdjacentSum(vector<int> &nums){
 #include <bits/stdc++.h> 
 using namespace std;
 //tc=O(n)
-//sc=o(1) ...no auxiliary stack space 
+//sc=o(1) ...no auxiliary stack space + no extra space
 int maximumNonAdjacentSum(vector<int> &nums){
     // using tabulation
     int n=nums.size();
-    vector<int>dp(n,0);
-      dp[0]=nums[0];
-      int prev1=nums[0],prev2=0;
+    int prev1=nums[0],prev2=0;
        for (int i = 1; i < n; i++) {
         int take=nums[i]+prev2;
          int nontake=prev1;
