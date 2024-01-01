@@ -1,6 +1,5 @@
-#include<bits/stdc++.h>
-using namespace std;
-//TC=(s1*t1) SC=O(t1);
+#include <bits/stdc++.h> 
+
 int lcs(string s, string t)
 { 
 	int s1=s.size();
@@ -11,12 +10,18 @@ int lcs(string s, string t)
            // if match
 		
 		if (s[i-1] == t[j-1])
-		 prev[j]=1 +prev[j-1];
+		 curr[j]=1 +prev[j-1];
 			// if notmatch
-		else prev[j]= max(prev[j-1],prev[j]);
+		else curr[j]= max(curr[j-1],prev[j]);
 		 }
-		
+		 prev=curr;
 	 }
 	//Write your code here
 	return prev[t1];
 	}
+int longestPalindromeSubsequence(string str)
+{
+   	string str1=str;
+	reverse(str.begin(),str.end());
+ return lcs(str,str1);
+}
